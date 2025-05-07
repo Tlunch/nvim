@@ -1,5 +1,3 @@
-vim.opt.guicursor = ""
-
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -30,3 +28,10 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+vim.api.nvim_exec([[
+    autocmd BufRead,BufNewFile *.tf set filetype=terraform
+    autocmd BufRead,BufNewFile *.zsh set filetype=zsh
+    autocmd BufRead,BufNewFile *.tfvars set filetype=hcl
+    autocmd BufRead,BufNewFile *.hcl set filetype=hcl
+    autocmd FileType terraform setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    ]], false)
